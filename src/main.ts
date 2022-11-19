@@ -1,17 +1,19 @@
 import { NestFactory } from '@nestjs/core';
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
-import { AppModule } from './app.module';
+import { PrismaModule } from './app.module';
 
 async function bootstrap() {
-  const app = await NestFactory.create(AppModule);
+  const app = await NestFactory.create(PrismaModule);
 
   const config = new DocumentBuilder()
-    .setTitle('Prisma Day - NestJS Prisma Workshop')
-    .setDescription('Building a REST API with NestJS and Prisma')
-    .setVersion('1.0')
+    .setTitle('Mi Life Design - Back End')
+    .setDescription(
+      'The back-end solution for a desktop management application',
+    )
+    .setVersion('0.1')
     .build();
   const document = SwaggerModule.createDocument(app, config);
-  SwaggerModule.setup('api', app, document, { customSiteTitle: 'Prisma Day' });
+  SwaggerModule.setup('api', app, document, { customSiteTitle: 'Back End' });
 
   await app.listen(3000);
 }
