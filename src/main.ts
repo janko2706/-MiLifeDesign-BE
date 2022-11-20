@@ -1,9 +1,13 @@
+import { ValidationPipe } from '@nestjs/common';
 import { NestFactory } from '@nestjs/core';
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
 import { PrismaModule } from './app.module';
 
 async function bootstrap() {
   const app = await NestFactory.create(PrismaModule);
+
+  	// 👇 binds ValidationPipe to the entire application
+    app.useGlobalPipes(new ValidationPipe());
 
   const config = new DocumentBuilder()
     .setTitle('Mi Life Design - Back End')
