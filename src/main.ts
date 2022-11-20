@@ -19,6 +19,7 @@ async function bootstrap() {
       'The back-end solution for a desktop management application',
     )
     .setVersion('0.1')
+    .addBearerAuth()
     .build();
   const document = SwaggerModule.createDocument(app, config);
   SwaggerModule.setup('api', app, document, { customSiteTitle: 'Back End' });
