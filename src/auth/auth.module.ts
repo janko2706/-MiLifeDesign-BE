@@ -16,7 +16,7 @@ export const jwtSecret = 'test';
     PassportModule,
     JwtModule.register({
       secret: jwtSecret,
-      signOptions: { expiresIn: '60s' }, // TODO e.g. 7d, 24h 
+      signOptions: { expiresIn: '200d' }, // TODO e.g. 7d, 24h 
     }),
   ],
   controllers: [AuthController],
